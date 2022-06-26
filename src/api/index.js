@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:9092/" });
+const API = axios.create({ baseURL: "http://bolnica.k8s.elab.rs:32264" });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("token")) {
@@ -24,9 +24,9 @@ export const deleteDemo = (id) => API.delete(`/demos/${id}`);
 // GENERAL
 
 export const login = (formData) =>
-  API.post("/bolnica-user-service/api/login", formData);
+  API.post("/bolnica-user/api/login", formData);
 export const resetPassword = (email) =>
-  API.post("/bolnica-user-service/api/forgot-password", email);
+  API.post("/bolnica-user/api/forgot-password", email);
 
 // APPOINTMENTS
 
@@ -101,21 +101,21 @@ export const fetchRecord = (lbp) =>
 
 // EMPLOYEES
 export const fetchEmployees = () =>
-  API.post(`/bolnica-user-service/api/list-employees?page=1&size=5`, {
+  API.post(`/bolnica-user/api/list-employees?page=1&size=5`, {
     department: 1,
   });
 export const fetchEmployeesDep = (id) =>
-  API.post(`/bolnica-user-service/api/list-employees?page=1&size=5`, {
+  API.post(`/bolnica-user/api/list-employees?page=1&size=5`, {
     department: id,
   });
 export const fetchEmployee = (lbz) =>
-  API.get(`/bolnica-user-service/api/get-employee/${lbz}`);
+  API.get(`/bolnica-user/api/get-employee/${lbz}`);
 export const createEmployee = (formData) =>
-  API.post(`/bolnica-user-service/api/create-employee`, formData);
+  API.post(`/bolnica-user/api/create-employee`, formData);
 export const updateEmployee = (formData) =>
-  API.put(`/bolnica-user-service/api/update-employee`, formData);
+  API.put(`/bolnica-user/api/update-employee`, formData);
 export const deleteEmployee = (lbz) =>
-  API.delete(`/bolnica-user-service/api/remove-employee/${lbz}`);
+  API.delete(`/bolnica-user/api/remove-employee/${lbz}`);
 export const searchEmployees = (searchValues) =>
   API.post("/employees", searchValues);
 

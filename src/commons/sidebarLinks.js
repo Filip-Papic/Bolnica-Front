@@ -271,11 +271,11 @@ export const getSidebarLinks = (role, activeId) => {
         isActive: activeId === 5 ? true : false,
       },
       {
-        id: 2,
+        id: 6,
         text: "Pacijenti (stacionar)",
-        path: "/patient-preview",
+        path: "/stationary",
         icon: <FaUserInjured />,
-        isActive: activeId === 2 ? true : false,
+        isActive: activeId === 6 ? true : false,
         dividerAfter: true,
       },
       {
